@@ -1,0 +1,94 @@
+*, *::after, *::before{
+    outline: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #04192f;
+}
+
+svg{
+    width: 0;
+    height: 0
+}
+
+.wrapper{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    width: 500px;
+    height: 150px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(0, 0, 0, .1));
+}
+
+.circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background:transparent;
+    position: relative;
+    filter: url(#turbulence) blur(0.75px);
+}
+
+.circle::after{
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: shadowAnimation 5s linear infinite;
+    box-shadow: inset 0 0 20px crimson, 0 0 20px crimson;
+}
+
+.circle:nth-child(2)::after{
+    animation-delay: -3s;
+}
+
+.circle{
+    border: 5px solid white;
+}
+
+@keyframes shadowAnimation {
+    0%{
+        box-shadow: inset 0 0 30px crimson, 0 0 30px crimson;
+        filter: hue-rotate(0deg)
+    }
+    20%{
+        box-shadow: inset 0 0 50px crimson, 0 0 50px crimson;
+        filter: hue-rotate(180deg);
+    }
+    50%{
+        box-shadow: inset 0 0 70px crimson, 0 0 70px crimson;
+        filter: hue-rotate(360deg);
+    }
+    80%{
+        box-shadow: inset 0 0 40px crimson, 0 0 40px crimson;
+        filter: hue-rotate(180deg);
+    }
+    100%{
+        box-shadow: inset 0 0 30px crimson, 0 0 30px crimson;
+        filter: hue-rotate(0deg);
+    }
+}
